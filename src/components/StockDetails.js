@@ -3,6 +3,7 @@ import { Spinner } from "reactstrap";
 import { Form, FormGroup, Input } from "reactstrap";
 import { DetailTable } from "./DetailTable";
 
+
 class StockDetails extends Component {
   constructor(props) {
     super(props);
@@ -10,13 +11,14 @@ class StockDetails extends Component {
     this.state = {
       detail: [],
       isLoading: true,
-      name: "",
-      selectedDate: "All",
+      name: '',
+      selectedDate: 'All',
     };
 
     this.setDate = this.setDate.bind(this);
   }
 
+ 
   componentDidMount() {
     fetch("http://131.181.190.87:3001/history?symbol=" + this.props.symbol)
       .then((response) => response.json())
@@ -26,7 +28,10 @@ class StockDetails extends Component {
       });
   }
 
-  setDate = (e) => {
+
+
+
+  setDate = e => {
     this.setState({ selectedDate: e.target.value });
   };
 
@@ -48,7 +53,7 @@ class StockDetails extends Component {
               <FormGroup>
                 <Input type="select" onChange={this.setDate}>
                   <option value="All">All</option>
-                  {this.state.detail.map((detail) => (
+                  {this.state.detail.map(detail => (
                     <option value={detail.timestamp}>
                       {detail.timestamp.slice(0, 10)}
                     </option>

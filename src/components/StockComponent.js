@@ -3,6 +3,7 @@ import "../../src/StockComponent.css";
 import { Form, FormGroup, Input, Button } from "reactstrap";
 import { StockTable } from "./StockTable";
 
+
 class StockComponent extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,7 @@ class StockComponent extends Component {
     this.setIndustry = this.setIndustry.bind(this);
   }
 
+  
   componentDidMount() {
     fetch("http://131.181.190.87:3001/all")
       .then((response) => response.json())
@@ -30,6 +32,9 @@ class StockComponent extends Component {
         });
       });
   }
+
+
+
 
   getSymbol = (e) => {
     e.preventDefault();
